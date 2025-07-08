@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "debugpy",
+            "request": "launch",
+            "name": "Uvicorn: main",
+            "module": "uvicorn",
+            "args": [
+                "main:app",
+                "--reload"
+            ]
+        }
+    ]
+}
