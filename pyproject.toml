@@ -6,6 +6,10 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.116.0",
+    "fastapi-jsonrpc>=3.4.1",
+    "fastmcp>=2.10.2",
+    "llama-index-tools-mcp>=0.2.6",
+    "mcp[cli]>=1.10.1",
     "pydantic>=2.11.7",
     "uvicorn>=0.35.0",
 ]
