@@ -21,17 +21,17 @@ jobs:
             python: 3.12
             node_version: 24
             architecture: x86_64
-            build_command: .venv/bin/nuitka --follow-imports --standalone --onefile server/main.py
+            build_command: .venv/bin/nuitka --follow-imports --standalone --assume-yes-for-downloads --onefile server/main.py
           - os: macos-arm
             python: 3.12
             node_version: 24
             architecture: arm64
-            build_command: .venv/bin/nuitka --follow-imports --standalone --onefile server/main.py
+            build_command: .venv/bin/nuitka --follow-imports --standalone --assume-yes-for-downloads --onefile server/main.py
           - os: windows-latest
             python: 3.12
             node_version: 24
             architecture: x86_64
-            build_command: .venv\\Scripts\\nuitka --follow-imports --standalone --onefile server/main.py
+            build_command: .venv\\Scripts\\nuitka --follow-imports --standalone --assume-yes-for-downloads --onefile server/main.py
 
     steps:
     - name: Checkout repository
