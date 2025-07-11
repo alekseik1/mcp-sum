@@ -49,7 +49,11 @@ jobs:
 
     - name: Build with Nuitka
       run: |
-        .venv/bin/nuitka --follow-imports --standalone --onefile server/main.py
+        if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+          .venv\\Scripts\\nuitka --follow-imports --standalone --onefile server/main.py
+        else
+          .venv/bin/nuitka --follow-imports --standalone --onefile server/main.py
+        fi
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
