@@ -21,14 +21,17 @@ jobs:
             python: 3.12
             node_version: 24
             architecture: x86_64
+            build_command: .venv/bin/nuitka --follow-imports --standalone --onefile server/main.py
           - os: macos-arm
             python: 3.12
             node_version: 24
             architecture: arm64
+            build_command: .venv/bin/nuitka --follow-imports --standalone --onefile server/main.py
           - os: windows-latest
             python: 3.12
             node_version: 24
             architecture: x86_64
+            build_command: .venv\\Scripts\\nuitka --follow-imports --standalone --onefile server/main.py
 
     steps:
     - name: Checkout repository
@@ -48,12 +51,7 @@ jobs:
       run: uv sync
 
     - name: Build with Nuitka
-      run: |
-        if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-          .venv\\Scripts\\nuitka --follow-imports --standalone --onefile server/main.py
-        else
-          .venv/bin/nuitka --follow-imports --standalone --onefile server/main.py
-        fi
+      run: ${{ matrix.build_command }}
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
