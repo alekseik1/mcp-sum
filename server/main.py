@@ -10,7 +10,6 @@ def sum_two(a: int, b: int) -> int:
     """
     Sums two integers.
     """
-    print("ХУЙ ПИЗДА СКОВОРОДА", file=sys.stderr)
     return a + b
 
 
