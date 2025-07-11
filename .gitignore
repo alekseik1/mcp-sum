@@ -1,3 +1,13 @@
+# nuitka
+*.build/
+*.dist/
+*-build/
+*.bin
+.DS_Store
+
+# MCP server packs
+*.dxt
+
 # Python-generated files
 __pycache__/
 *.py[oc]

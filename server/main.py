@@ -1,3 +1,5 @@
+import sys
+
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("Simple MCP Server")
@@ -8,9 +10,11 @@ def sum_two(a: int, b: int) -> int:
     """
     Sums two integers.
     """
-    print("ХУЙ ПИЗДА СКОВОРОДА")
+    print("ХУЙ ПИЗДА СКОВОРОДА", file=sys.stderr)
     return a + b
 
 
 if __name__ == "__main__":
-    mcp.run("sse")
+    print("Starting File Manager MCP Server...", file=sys.stderr)
+
+    mcp.run()

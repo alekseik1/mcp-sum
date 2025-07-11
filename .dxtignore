@@ -1,0 +1,8 @@
+.vscode
+__pycache__
+.venv
+build
+*.build/
+*.dist/
+*-build/
+.DS_Store

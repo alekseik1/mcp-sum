@@ -1,0 +1,35 @@
+{
+  "dxt_version": "0.1",
+  "name": "mcp-sum",
+  "version": "1.0.0",
+  "description": "Sample Sum Tool",
+  "author": {
+    "name": "Aleksei Kozharin"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "${__dirname}",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/launcher.js",
+        "${__dirname}"
+      ],
+      "env": {
+        "PYTHONPATH": ""
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "sum_two",
+      "description": "Sums two integers"
+    }
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "runtimes": {
+      "python": ">=3.8"
+    }
+  }
+}
