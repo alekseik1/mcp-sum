@@ -15,14 +15,20 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, windows-latest]
+        os: [macos-x86, macos-arm, windows-latest]
         include:
-          - os: macos-latest
+          - os: macos-x86
             python: 3.12
             node_version: 24
+            architecture: x86_64
+          - os: macos-arm
+            python: 3.12
+            node_version: 24
+            architecture: arm64
           - os: windows-latest
             python: 3.12
             node_version: 24
+            architecture: x86_64
 
     steps:
     - name: Checkout repository
