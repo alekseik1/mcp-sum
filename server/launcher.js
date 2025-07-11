@@ -18,19 +18,16 @@ function getBinaryPath(baseDir) {
 function ensureExecutable(filePath) {
   const platform = os.platform();
   if (platform === "win32") {
-    // Windows не использует chmod +x
     return;
   }
 
   try {
     const stat = fs.statSync(filePath);
 
-    // Если файл уже исполняемый, ничего не делаем
     if (stat.mode & 0o111) {
       return;
     }
 
-    // Устанавливаем +x (исполняемый для владельца, группы, всех)
     fs.chmodSync(filePath, stat.mode | 0o111);
   } catch (err) {
     console.error("Failed to set +x on binary:", err);
@@ -38,7 +35,6 @@ function ensureExecutable(filePath) {
   }
 }
 
-// Получаем аргументы
 const allArgs = process.argv.slice(2);
 
 if (allArgs.length < 1) {
@@ -50,10 +46,8 @@ const binaryDir = allArgs[0];
 const binaryArgs = allArgs.slice(1);
 const binaryPath = getBinaryPath(binaryDir);
 
-// Убедиться, что бинарь исполняемый
 ensureExecutable(binaryPath);
 
-// Запуск
 const child = spawn(binaryPath, binaryArgs, {
   stdio: ["pipe", "pipe", "pipe"],
 });
